@@ -174,7 +174,26 @@
         <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
   </link>
-  <link name="${prefix}tool0"/>
+  <link name="${prefix}tool0">
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.0315 -0.0315 -0.15"/>
+      <material name="gray"/>
+      <geometry>
+        <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/camera.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.0315 -0.0315 -0.15"/>
+      <geometry>
+        <mesh filename="package://iiwa_description/meshes/lbr_iiwa_14_r820/collision/camera.stl" scale ="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+  </link>
 
   <joint name="${prefix}joint_a1" type="revolute">
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -226,7 +245,7 @@
       <limit effort="40" lower="-3.0541" upper="3.0541" velocity="2.356"/>
   </joint>
   <joint name="${prefix}joint_a7-tool0" type="fixed">
-      <origin rpy="0 0 0" xyz="0 0 0.154"/>
+      <origin rpy="0 0 0" xyz="0 0 0.3"/>
       <parent link="${prefix}link_7"/>
       <child link="${prefix}tool0"/>
       <axis xyz="0 0 0"/>
