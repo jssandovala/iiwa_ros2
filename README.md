@@ -120,7 +120,17 @@ ros2 launch iiwa_bringup iiwa.launch.py use_fake_hardware:="false" command_inter
 **NOTE**: The package can simulate hardware with the ros2_control `FakeSystem`. This is the default behavior. This emulator enables an environment for testing of "piping" of hardware and controllers, as well as testing robot's descriptions. For more details see ros2_control documentation for more details.
 
 ### Example commands for setup testing
-1. Start the simulated hardware, in a sourced terminal run
+#### Prerequisites
+
+This example relies on a test node provided by the ros2_controllers_test_nodes package, which is not installed by default in ROS 2 Humble.
+Before proceeding, please make sure it is installed:
+```shell
+sudo apt update
+sudo apt install ros-humble-ros2-controllers-test-nodes
+```
+Make sure your ROS 2 environment and workspace are properly sourced afterward.
+
+1. Start the simulated hardware. In a sourced terminal run:
     ```shell
     ros2 launch iiwa_bringup iiwa.launch.py
     ```
